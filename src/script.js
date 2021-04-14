@@ -1,5 +1,5 @@
 'use strict';
-console.clear();
+// console.clear();
 
 // This is a prime example of what starts out as a simple project
 // and snowballs way beyond its intended size. It's a little clunky
@@ -1175,7 +1175,7 @@ function handleKeydown(event) {
 	}
 }
 
-// mainStage.addEventListener('pointerstart', handlePointerStart);
+mainStage.addEventListener('pointerstart', handlePointerStart);
 mainStage.addEventListener('pointerend', handlePointerEnd);
 mainStage.addEventListener('pointermove', handlePointerMove);
 window.addEventListener('keydown', handleKeydown);
@@ -2326,20 +2326,23 @@ if (IS_HEADER) {
 	}, 0);
 }
 
+function clone(data) {
+	return JSON.parse(JSON.stringify(data))
+}
+
 var firstLoad = true;
 const bgMusic = new Audio('./audio/background.mp3');
 function onBgMusic() {
 	if (firstLoad) {
-		bgMusic.play();
+		// bgMusic.play();
+
+		initTitle();
+		requestAnimationFrame(renderTitle);
 
 		music1();
 
 	}
 	firstLoad = false;
-}
-
-function clone(data) {
-	return JSON.parse(JSON.stringify(data))
 }
 
 function music1() {
@@ -2366,14 +2369,14 @@ function music1() {
 		shell1.launch(0.2, 0.9)
 	}, 1000);
 
-
 	setTimeout(() => {
 		store.state.config = clone(root);
-		store.state.config.size = '8'
+		store.state.config.size = '1'
 		store.state.config.shell = 'Floral'
-		simSpeed = 1
+		simSpeed = 0.2
 		const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
 		shell1.launch(0.85, 0.9)
 	}, 1500);
+	setTimeout(() => {simSpeed = 1}, 2000);
 }
 
