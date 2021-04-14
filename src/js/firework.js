@@ -1203,7 +1203,6 @@ handleResize();
 
 window.addEventListener('resize', handleResize);
 
-
 // Dynamic globals
 let currentFrame = 0;
 let speedBarOpacity = 0;
@@ -2325,58 +2324,3 @@ if (IS_HEADER) {
 		);
 	}, 0);
 }
-
-function clone(data) {
-	return JSON.parse(JSON.stringify(data))
-}
-
-var firstLoad = true;
-const bgMusic = new Audio('./audio/background.mp3');
-function onBgMusic() {
-	if (firstLoad) {
-		// bgMusic.play();
-
-		initTitle();
-		requestAnimationFrame(renderTitle);
-
-		music1();
-
-	}
-	firstLoad = false;
-}
-
-function music1() {
-	const root = {
-		"quality": "2",
-		"shell": "Random",  // shellTypes
-		"size": "1",
-		"autoLaunch": false,
-		"finale": false,
-		"skyLighting": "2",
-		"hideControls": false,
-		"longExposure": false,
-		"scaleFactor": 1
-	};
-
-
-
-	setTimeout(() => {
-		store.state.config = clone(root);
-		store.state.config.size = '3'
-		store.state.config.shell = 'Ring'
-		simSpeed = 1
-		const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-		shell1.launch(0.2, 0.9)
-	}, 1000);
-
-	setTimeout(() => {
-		store.state.config = clone(root);
-		store.state.config.size = '1'
-		store.state.config.shell = 'Floral'
-		simSpeed = 0.2
-		const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-		shell1.launch(0.85, 0.9)
-	}, 1500);
-	setTimeout(() => {simSpeed = 1}, 2000);
-}
-

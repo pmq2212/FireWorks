@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Firework Simulator v2</title>
+  <title>Firework_White_Hole</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,10 +14,10 @@
 <meta name="msapplication-TileImage" href="./img/firework-burst-icon-v2.png">
 <link href="./css/font.css" rel="stylesheet">
 <link rel="stylesheet" href="./css/reset.css">
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body onclick="onBgMusic()">
+<body onclick="initAll()">
 <!-- partial:index.partial.html -->
 <!-- SVG Spritesheet -->
 <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
@@ -52,6 +52,7 @@
     <div class="stage-container remove">
         <div class="canvas-container">
             <canvas id="title-canvas"></canvas>
+            <canvas id="fire-canvas"></canvas>
             <canvas id="trails-canvas"></canvas>
             <canvas id="main-canvas"></canvas>
         </div>
@@ -136,7 +137,9 @@
 <script src='./audio/0-fire.js'></script>
 
 <script  src="./js/title.js"></script>
-<script  src="./script.js"></script>
+<script  src="./js/small_fire.js"></script>
+<script  src="./js/firework.js"></script>
+<script  src="./js/index.js"></script>
 
 </body>
 </html>

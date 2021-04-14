@@ -1,14 +1,3 @@
-let chars, particles, canvas, ctx, w, h, current;
-let duration = 10000;
-let timeStart; // Time is begin render canvas
-let firstRender = true; // Time is begin render canvas
-
-// let title = 'Happy Rikkeisoft 9th Anniversary & Rikkeisoft DaNang 5th Anniversary';
-let line = [
-  [ 'Happy Rikkeisoft', 'Rikkeisoft DaNang'],
-  [ '9th Anniversary', '5th Anniversary']
-];
-
 function makeChar(c){
     let tmp = document.createElement('canvas');
     let size = tmp.width = tmp.height = w<400?100:150;
@@ -61,7 +50,6 @@ function makeChars(t) {
     }
     chars = charsActual;
 }
-
 
 function renderTitle(timestamp) {
     let time = 0;
