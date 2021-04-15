@@ -379,3 +379,56 @@ body {
   top:25%;
   left:38%;
 }
+ /*Text End run*/
+.animate-bottom {
+  position: absolute;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 10s;
+  animation-name: animatebottom;
+  animation-duration: 10s;
+  z-index: 10;
+  color: white;
+}
+@-webkit-keyframes animatebottom {
+  from { bottom:-110%; opacity:1 }
+  to { bottom: -100px; opacity:1 }  /* Set = margin-top */
+}
+@keyframes animatebottom {
+  from{ bottom:-110%; opacity:1 }
+  to{ bottom: -100px; opacity:1 }
+}
+#container-end {
+  height: 100%;
+  width: 100%;
+  margin-top: 100px;
+}
+#container-end p, .thanks {
+  font-family: "Roboto Light";
+}
+#slide-end {
+  float: right;
+  width: 50%;
+  text-align: center;
+  color: white;
+}
+#slide-end h3{
+  font-size: 2em;
+  color: yellow;
+  margin-bottom: 25px;
+}
+#slide-end .content {
+  margin-bottom: 15px;
+}
+#slide-end h4{
+  font-size: 1em;
+  color: yellow;
+}
+#container-end .thanks{
+  font-size: 1em;
+  width: 80%;
+  margin: 20px auto 0;
+}
+#container-end .content-after{
+  margin-top: 30px;
+  font-size: 0.6em;
+}

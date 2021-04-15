@@ -28,19 +28,18 @@ function initAll() {
         requestAnimationFrame(renderTitle);
 
         // Load small fire
-        initFire();
+        // initFire();
         // DrawFire
         // drawFire(0.5, 0.5);
         // Remove Fire
         // setCoordsFire(0, 0)
 
-
         // Load fireworks
         // music3();
 
         // Music 3, 4
-        end();
-
+        // end();
+        document.getElementById("container-end").style.display = "block";
     }
 }
 
@@ -287,6 +286,51 @@ function music3() {
         shell1.launch(0.3, 0.1)
         shell1.launch(0.7, 0.1)
     }, time + 8500);
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '3'
+        store.state.config.shell = 'Ring'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.1, 0.8)
+        shell1.launch(0.5, 0.8)
+        shell1.launch(0.9, 0.8)
+    }, time + 8700);
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '3'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.3, 0.1)
+        shell1.launch(0.7, 0.1)
+    }, time + 8900);
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '3'
+        store.state.config.shell = 'Ghost'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.5, 0.8)
+    }, time + 9200);
+
+    /*1 hieu ung*/
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Palm'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.1, 0.1)
+        shell1.launch(0.3, 0.1)
+        shell1.launch(0.5, 0.1)
+        shell1.launch(0.7, 0.1)
+        shell1.launch(0.9, 0.1)
+    }, time + 13200);
 
     setTimeout(() => {
         store.state.config = clone(root);
