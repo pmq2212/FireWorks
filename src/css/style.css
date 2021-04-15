@@ -328,6 +328,26 @@ body {
   transition-duration: 0.4s;
 }
 
+body {
+  background: url("./../img/background.jpg") center center / 100% 100% no-repeat;
+  z-index: 1;
+}
+
+img.moon {
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  top: 80px;
+  left: 100px;
+}
+img.team {
+  height: 85%;
+  width: 45%;
+  position: absolute;
+  left: 90px;
+  margin-top: -20px;
+}
+
 /* Button Play */
 #btn-play-overflow {
   position: absolute;
@@ -401,18 +421,19 @@ body {
   height: 100%;
   width: 100%;
   margin-top: 100px;
-}
-#container-end p, .thanks {
   font-family: "Roboto Light";
 }
+
 #slide-end {
   float: right;
   width: 50%;
   text-align: center;
   color: white;
+  margin-top: 5em;
 }
 #slide-end h3{
-  font-size: 2em;
+  font-size: 2.5em;
+  font-weight: bold;
   color: yellow;
   margin-bottom: 25px;
 }
@@ -420,15 +441,15 @@ body {
   margin-bottom: 15px;
 }
 #slide-end h4{
-  font-size: 1em;
+  font-size: 1.2em;
   color: yellow;
 }
 #container-end .thanks{
-  font-size: 1em;
+  font-size: 1.2em;
   width: 80%;
   margin: 20px auto 0;
 }
 #container-end .content-after{
   margin-top: 30px;
-  font-size: 0.6em;
+  font-size: 0.8em;
 }

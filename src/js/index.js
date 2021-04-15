@@ -35,11 +35,13 @@ function initAll() {
         // setCoordsFire(0, 0)
 
         // Load fireworks
-        music3();
+        // music3();
 
         // Music 3, 4
         // end();
-        document.getElementById("container-end").style.display = "block";
+
+
+        // document.getElementById("container-end").style.display = "block";
     }
 }
 

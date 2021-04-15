@@ -1494,10 +1494,7 @@ function colorSky(speed) {
 	currentSkyColor.b += (targetSkyColor.b - currentSkyColor.b) / colorChange * speed;
 	
 	appNodes.canvasContainer.style.backgroundColor = `rgb(${currentSkyColor.r | 0}, ${currentSkyColor.g | 0}, ${currentSkyColor.b | 0})`;
-	appNodes.canvasContainer.style.backgroundImage = `url("./img/background.jpg")`;
-	appNodes.canvasContainer.style.backgroundRepeat = `no-repeat`;
-	appNodes.canvasContainer.style.backgroundSize = `100% 100%`;
-	appNodes.canvasContainer.style.backgroundPosition = `center`;
+	appNodes.canvasContainer.style.background = 'none';
 }
 
 mainStage.addEventListener('ticker', update);
