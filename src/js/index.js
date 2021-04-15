@@ -1505,6 +1505,16 @@ function music3() {
         shell1.launch(0.6, 0.4)
     }, time + 62000);
 
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Floral'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.2, 0.6)
+        shell1.launch(0.8, 0.6)
+    }, time + 63000);
+
     /*Crossette*/ //hiệu ứng lạ khá đẹp
     /*Crysanthemum*/ // đổi màu khá đẹp
     /*Falling Leaves*/ //xỏa hiệu ứng nhè nhẹ đẹp
