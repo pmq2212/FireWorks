@@ -35,7 +35,7 @@ function initAll() {
         // setCoordsFire(0, 0)
 
         // Load fireworks
-        // music3();
+        music3();
 
         // Music 3, 4
         // end();
@@ -55,7 +55,637 @@ function music3() {
         "longExposure": false,
         "scaleFactor": 1
     };
+    var hoand = 0;
 
+    // DrawFire
+    for (let i = 0; i < 4; i ++) {
+            setTimeout(() => {
+                store.state.config = clone(root);
+                store.state.config.size = '1';
+                store.state.config.shell = 'Crackle';
+                simSpeed = 1;
+                const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+                shell1.launch(0.2*i, 0)
+            }, hoand + i*100);
+    }
+
+    hoand += 5000;
+    initFire();
+    for (let i = 0; i <= 1; i += 0.1) {
+        setTimeout(() => {
+            // Load small fir
+            drawFire(1-i, 0.6);
+        }, hoand + i * 6000);
+    }
+    setTimeout(() => {
+        setCoordsFire(0, 0)
+    }, hoand + 6000);
+
+    hoand += 4000;
+    // setTimeout(() => {
+    //     store.state.config = clone(root);
+    //     store.state.config.size = '1'
+    //     store.state.config.shell = 'Crysanthemum'
+    //     simSpeed = 1
+    //     const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+    //     for (let i = 0; i < 5 ; i++) {
+    //         shell1.launch(0.1 + 0.2 *i, 0.1)
+    //     }
+    // }, hoand );
+
+    // setTimeout(() => {
+    //     store.state.config = clone(root);
+    //     store.state.config.size = '3'
+    //     store.state.config.shell = 'Crossette'
+    //     simSpeed = 1
+    //     const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+    //     for (let i = 0; i < 5 ; i++) {
+    //         shell1.launch(0.1 + 0.2 *i, 0.8)
+    //     }
+    // }, hoand);
+    hoand += 5 * 1000;
+
+    //5
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crossette'
+            simSpeed = 1
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.0)
+        }, hoand + i * 100 + 2000);
+    }
+
+    hoand += 5 * 1000;
+
+    // 10
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.2, 0.5)
+    }, hoand);
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.8, 0.5)
+    }, hoand);
+
+    hoand += 5 * 1000;
+
+    // 15
+    for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Strobe'
+            simSpeed = 1
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.125 * i, 0)
+        }, hoand);
+    }
+    for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '7'
+            store.state.config.shell = 'Strobe'
+            simSpeed = 1
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.2 + 0.2 * i, 0.8)
+        }, hoand);
+    }
+
+    hoand += 5 * 1000;
+    //20
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '9'
+        store.state.config.shell = 'Strobe'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.8, 0.8)
+    }, hoand);
+
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Strobe'
+            simSpeed = 1
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0)
+        }, hoand + 1000);
+    }
+
+    hoand += 5 * 1000;
+    //25
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crossette'
+            simSpeed = 1
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.3)
+        }, hoand + 0 * 1000 + i * 100);
+    }
+
+    for (let i = 10; i > 5; i--) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crossette'
+            simSpeed = 1
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.3)
+        }, hoand + 2 * 1000 - i * 200);
+    }
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.5, 0.7)
+    }, hoand);
+
+    hoand += 5 * 1000;
+    //30
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '9'
+        store.state.config.shell = 'Ring';
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.25, 0.5)
+    }, hoand);
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '9'
+        store.state.config.shell = 'Ring';
+        simSpeed = 1;
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.75, 0.5)
+    }, hoand);
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crysanthemum'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        for (let i = 0; i < 5 ; i++) {
+            shell1.launch(0.1 + 0.2 *i, 0.1)
+        }
+    }, hoand );
+
+    // setTimeout(() => {
+    //     store.state.config = clone(root);
+    //     store.state.config.size = '3'
+    //     store.state.config.shell = 'Crossette'
+    //     simSpeed = 1
+    //     const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+    //     for (let i = 0; i < 5 ; i++) {
+    //         shell1.launch(0.1 + 0.2 *i, 0.8)
+    //     }
+    // }, hoand);
+    //
+    // initFire();
+    // for (let i = 0; i <= 1; i += 0.1) {
+    //     setTimeout(() => {
+    //         // Load small fir
+    //         drawFire(1-i, 0.6);
+    //     }, hoand + i * 5000);
+    // }
+    // setTimeout(() => {
+    //     setCoordsFire(0, 0)
+    // }, hoand );
+
+    hoand += 5 * 1000;
+    //30
+
+    for (let i = 5; i > 0; i--) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Palm'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.3)
+        }, hoand + 0 * 1000 + i * 100);
+    }
+
+    for (let i = 5; i < 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Palm'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.3)
+        }, hoand + 2 * 1000 - i * 200);
+    }
+
+    for (let i = 5; i > 0; i--) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Palm'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.8)
+        }, hoand + 0 * 1000 + i * 100);
+    }
+
+    for (let i = 5; i < 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Palm'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.8)
+        }, hoand + 2 * 1000 - i * 200);
+    }
+
+    hoand += 5 * 1000;
+    //35
+
+    for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '3'
+            store.state.config.shell = 'Ghost'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.2 + 0.3 * i, 0.8)
+        }, hoand);
+    }
+
+    for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '6'
+            store.state.config.shell = 'Ghost'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 + 0.25 * i, 0.1)
+        }, hoand);
+    }
+
+
+    hoand += 5 * 1000;
+    //40
+
+    for (let i = 0; i < 2; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '3'
+            store.state.config.shell = 'Ghost'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.4 + 0.4 * i, 0.8)
+        }, hoand);
+    }
+
+    for (let i = 0; i < 2; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '6'
+            store.state.config.shell = 'Crackle'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.3 + 0.3 * i, 0.1)
+        }, hoand);
+    }
+
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crossette'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0)
+        }, hoand + 0 * 1000 + i * 100);
+    }
+
+
+    hoand += 4 * 1000;
+    //45
+
+    for (let i = 0; i < 60; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Random'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(Math.random(), Math.random())
+        }, hoand + i * 100);
+    }
+
+
+// ========================================================================
+    hoand += 9 * 1000 + 500;
+    // 55
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crysanthemum'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.1, 0.9)
+        shell1.launch(0.2, 0.9)
+        shell1.launch(0.3, 0.9)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crysanthemum'
+        simSpeed = 1
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.4, 0.4)
+        shell1.launch(0.5, 0.4)
+        shell1.launch(0.6, 0.4)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '3'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.7, 0.1)
+        shell1.launch(0.8, 0.1)
+        shell1.launch(0.9, 0.1)
+        shell1.launch(1, 0.1)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Ring'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.8, 0.9)
+    }, hoand);
+
+    hoand += 1000;
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crysanthemum'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.1, 0)
+        shell1.launch(0.2, 0)
+        shell1.launch(0.3, 0)
+    }, hoand);
+
+    // 60
+    hoand += 4000;
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '9'
+        store.state.config.shell = 'Ring'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.5, 0.8)
+    }, hoand + 1);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '2'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.4, 0.2)
+        shell1.launch(0.6, 0.2)
+    }, hoand + 2);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.9, 0.6)
+    }, hoand + 3);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crossette'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.1, 0.6)
+    }, hoand + 3);
+
+    //63
+    hoand += 4000;
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crossette'
+            simSpeed = 2
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0.1 * i)
+        }, hoand + i * 100);
+    }
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crossette'
+            simSpeed = 2
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(1 - 0.1 * i, 0.1 * i)
+        }, hoand + i * 100);
+    }
+
+    //67
+    hoand += 4000;
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crackle'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.6, 0)
+        shell1.launch(0.55, 0)
+        shell1.launch(0.4, 0)
+        shell1.launch(0.45, 0)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crackle'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.3, 0.2)
+        shell1.launch(0.7, 0.2)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crackle'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.2, 0.4)
+        shell1.launch(0.8, 0.4)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '1'
+        store.state.config.shell = 'Crackle'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.1, 0.6)
+        shell1.launch(0.9, 0.6)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Willow'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.5, 0.7)
+    }, hoand);
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Random'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(Math.random(), Math.random())
+        }, hoand + 1000 + i * 100);
+    }
+
+    //71
+    // hoand += 4000;
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crysanthemum'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            if (i == 2 || i == 5 || i == 8) {
+
+            } else shell1.launch(0.1 * i, 0);
+        }, hoand - 1000);
+    }
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Horse Tail'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.2, 0.7)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Horse Tail'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.5, 0.7)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Horse Tail'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.8, 0.7)
+    }, hoand);
+
+    // 75
+    hoand += 4000;
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Crysanthemum'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.1 * i, 0);
+        }, hoand - 1000 + i * 100);
+    }
+
+    for (let i = 0; i <= 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Ghost'
+            simSpeed = 1.5
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(1 - 0.1 * i, 0.6);
+        }, hoand + i * 100);
+    }
+
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Ring'
+        simSpeed = 1.5
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.3, 0.9);
+        shell1.launch(0.7, 0.9);
+    }, hoand + 1000);
+
+    hoand += 4000;
+    //80
+
+    for (let i = 0; i <= 6; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Falling Leaves'
+            simSpeed = 2
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(1 - 0.12 * i, 0.1 * i)
+        }, hoand + i * 100);
+    }
+
+    hoand += 5000;
+    //85
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crysanthemum'
+        simSpeed = 2
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.3, 0.8)
+    }, hoand);
+    setTimeout(() => {
+        store.state.config = clone(root);
+        store.state.config.size = '6'
+        store.state.config.shell = 'Crysanthemum'
+        simSpeed = 2
+        const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+        shell1.launch(0.7, 0.8)
+    }, hoand);
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            store.state.config = clone(root);
+            store.state.config.size = '1'
+            store.state.config.shell = 'Ghost'
+            simSpeed = 2
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(Math.random(), Math.random())
+        }, hoand + i * 100);
+    }
+
+// ======================================================================================
 // của mình bắt đầu từ 1p30 đến 2p36s
     // nhạc khá bóc nên cần cái gì đó đệm nhanh
     /*màu có vẽ hơi random*/
