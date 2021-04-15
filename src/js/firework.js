@@ -1143,7 +1143,7 @@ function handlePointerStart(event) {
 		isUpdatingSpeed = true;
 	}
 	else if (event.onCanvas) {
-		launchShellFromConfig(event);
+		// launchShellFromConfig(event);
 	}
 }
 

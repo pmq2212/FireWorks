@@ -1,6 +1,6 @@
 function makeChar(c){
     let tmp = document.createElement('canvas');
-    let size = tmp.width = tmp.height = w<400?100:150;
+    let size = tmp.width = tmp.height = w<400?fontTextMin:fontTextMax;
     let tmpCtx = tmp.getContext('2d');
     tmpCtx.font = 'bold '+size+'px Arial';
     tmpCtx.fillStyle = 'white';
@@ -51,6 +51,7 @@ function makeChars(t) {
     chars = charsActual;
 }
 
+let requestTitleId;
 function renderTitle(timestamp) {
     let time = 0;
     if (firstRender) {
@@ -61,8 +62,8 @@ function renderTitle(timestamp) {
     }
 
     makeChars(time);
-    requestAnimationFrame(renderTitle);
-    let cntRender = duration * 2;
+    requestTitleId = requestAnimationFrame(renderTitle);
+
     if (time <= cntRender) {
       ctx.fillStyle = '#00000010'
       ctx.fillRect(0, 0, w, h);
@@ -71,12 +72,14 @@ function renderTitle(timestamp) {
           (pts,i) => firework(time, i, pts, row, idx)
         )
       );
+    } else {
+        cancelAnimationFrame(requestTitleId);
     }
 }
 
 function firework(t, i, pts, row, lineNo) {
-  let spaceLine = 0.2;
-  t -= i*50;
+
+  t -= i*dt;
   let id = i + row.length*parseInt(t - t%duration) + 0.5;
   t = t % duration / duration;
   let dx = (i+0.8)*w/(1+row.length);
