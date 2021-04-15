@@ -17,7 +17,10 @@
 <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body onclick="initAll()">
+<body>
+<div id='btn-play-overflow' ></div>
+<div id='btn-play' class="player" onclick="initAll()"><span>Play</span></div>
+
 <!-- partial:index.partial.html -->
 <!-- SVG Spritesheet -->
 <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
@@ -47,7 +50,7 @@
 <div class="container">
     <div class="loading-init">
         <div class="loading-init__header">Loading</div>
-        <div class="loading-init__status">Assembling Shells</div>
+        <div class="loading-init__status">White Hole Team</div>
     </div>
     <div class="stage-container remove">
         <div class="canvas-container">
@@ -56,7 +59,7 @@
             <canvas id="trails-canvas"></canvas>
             <canvas id="main-canvas"></canvas>
         </div>
-        <div class="controls">
+        <div id="control" class="controls" style="display: none">
             <div class="btn pause-btn">
                 <svg fill="white" width="24" height="24"><use href="#icon-pause" xlink:href="#icon-pause"></use></svg>
             </div>

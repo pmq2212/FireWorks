@@ -327,3 +327,55 @@ body {
   transition-timing-function: ease-out;
   transition-duration: 0.4s;
 }
+
+/* Button Play */
+#btn-play-overflow {
+  position: absolute;
+  z-index: 19;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background-color: black;
+}
+.player {
+  background: none;
+  width: 60px;
+  height: 60px;
+  border: solid 5px #fff;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 20;
+  text-indent:-9999px;
+  box-shadow: 1px 1px 3px #999999;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.player span {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-left: 20px solid #fff;
+  border-bottom: 15px solid transparent;
+  position:absolute;
+  top:20%;
+  left:36%;
+}
+
+.player:hover{
+  background:#4ccaea;
+  cursor:pointer;
+  opacity:0.8;
+  border:none;
+  position:absolute;
+  width: 60px;
+  height: 60px;
+  box-shadow:none;
+}
+
+.player:hover span{
+  top:25%;
+  left:38%;
+}
