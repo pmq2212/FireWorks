@@ -21,7 +21,7 @@ function initAll() {
         document.getElementById('btn-play').remove();
 
         // Music bacground
-        bgMusic.play();
+        // bgMusic.play();
 
         // Load title text
         initTitle();
