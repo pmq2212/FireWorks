@@ -32,11 +32,13 @@ function initAll() {
         initTitle();
         requestAnimationFrame(renderTitle);
 
-        music3();
+        startFireWorks();
+
+        middleFireWorks();
 
         // Music 3, 4
         let end_time;
-        end_time = end(165000);
+        end_time = endFireWorks(165000);
 
         setTimeout(() => {
             // line = [['THANKS'], ['YOU']];
@@ -53,30 +55,32 @@ function initAll() {
     }
 }
 
-function music3() {
-    const root = {
-        "quality": "10",
-        "shell": "Random",  // shellTypes
-        "size": "2",
-        "autoLaunch": false,
-        "finale": false,
-        "skyLighting": "2",
-        "hideControls": false,
-        "longExposure": false,
-        "scaleFactor": 1
-    };
+const rootConfig = {
+    "quality": "10",
+    "shell": "Random",  // shellTypes
+    "size": "2",
+    "autoLaunch": false,
+    "finale": false,
+    "skyLighting": "2",
+    "hideControls": false,
+    "longExposure": false,
+    "scaleFactor": 1
+};
+
+// scene music 1,2
+function startFireWorks() {
     var hoand = 0;
 
     // DrawFire
-    for (let i = 0; i < 4; i ++) {
-            setTimeout(() => {
-                store.state.config = clone(root);
-                store.state.config.size = '1';
-                store.state.config.shell = 'Crackle';
-                simSpeed = 1;
-                const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-                shell1.launch(0.2*i, 0)
-            }, hoand + i*100);
+    for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+            store.state.config = clone(rootConfig);
+            store.state.config.size = '1';
+            store.state.config.shell = 'Crackle';
+            simSpeed = 1;
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.2 * i, 0)
+        }, hoand + i * 100);
     }
 
     hoand += 5000;
@@ -84,7 +88,7 @@ function music3() {
     for (let i = 0; i <= 1; i += 0.1) {
         setTimeout(() => {
             // Load small fir
-            drawFire(1-i, 0.6);
+            drawFire(1 - i, 0.6);
         }, hoand + i * 6000);
     }
     setTimeout(() => {
@@ -93,7 +97,7 @@ function music3() {
 
     hoand += 4000;
     // setTimeout(() => {
-    //     store.state.config = clone(root);
+    //     store.state.config = clone(rootConfig);
     //     store.state.config.size = '1'
     //     store.state.config.shell = 'Crysanthemum'
     //     simSpeed = 1
@@ -104,7 +108,7 @@ function music3() {
     // }, hoand );
 
     // setTimeout(() => {
-    //     store.state.config = clone(root);
+    //     store.state.config = clone(rootConfig);
     //     store.state.config.size = '3'
     //     store.state.config.shell = 'Crossette'
     //     simSpeed = 1
@@ -118,7 +122,7 @@ function music3() {
     //5
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crossette'
             simSpeed = 1
@@ -131,7 +135,7 @@ function music3() {
 
     // 10
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crossette'
         simSpeed = 1
@@ -140,7 +144,7 @@ function music3() {
     }, hoand);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crossette'
         simSpeed = 1
@@ -153,7 +157,7 @@ function music3() {
     // 15
     for (let i = 0; i < 8; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Strobe'
             simSpeed = 1
@@ -163,7 +167,7 @@ function music3() {
     }
     for (let i = 0; i < 4; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '7'
             store.state.config.shell = 'Strobe'
             simSpeed = 1
@@ -175,7 +179,7 @@ function music3() {
     hoand += 5 * 1000;
     //20
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '9'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -185,7 +189,7 @@ function music3() {
 
     for (let i = 0; i < 5; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Strobe'
             simSpeed = 1
@@ -198,7 +202,7 @@ function music3() {
     //25
     for (let i = 0; i < 5; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crossette'
             simSpeed = 1
@@ -209,7 +213,7 @@ function music3() {
 
     for (let i = 10; i > 5; i--) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crossette'
             simSpeed = 1
@@ -219,7 +223,7 @@ function music3() {
     }
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crossette'
         simSpeed = 1
@@ -231,7 +235,7 @@ function music3() {
     //30
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '9'
         store.state.config.shell = 'Ring';
         simSpeed = 1
@@ -240,7 +244,7 @@ function music3() {
     }, hoand);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '9'
         store.state.config.shell = 'Ring';
         simSpeed = 1;
@@ -249,18 +253,18 @@ function music3() {
     }, hoand);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-        for (let i = 0; i < 5 ; i++) {
-            shell1.launch(0.1 + 0.2 *i, 0.1)
+        for (let i = 0; i < 5; i++) {
+            shell1.launch(0.1 + 0.2 * i, 0.1)
         }
-    }, hoand );
+    }, hoand);
 
     // setTimeout(() => {
-    //     store.state.config = clone(root);
+    //     store.state.config = clone(rootConfig);
     //     store.state.config.size = '3'
     //     store.state.config.shell = 'Crossette'
     //     simSpeed = 1
@@ -286,7 +290,7 @@ function music3() {
 
     for (let i = 5; i > 0; i--) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Palm'
             simSpeed = 1.5
@@ -297,7 +301,7 @@ function music3() {
 
     for (let i = 5; i < 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Palm'
             simSpeed = 1.5
@@ -308,7 +312,7 @@ function music3() {
 
     for (let i = 5; i > 0; i--) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Palm'
             simSpeed = 1.5
@@ -319,7 +323,7 @@ function music3() {
 
     for (let i = 5; i < 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Palm'
             simSpeed = 1.5
@@ -333,7 +337,7 @@ function music3() {
 
     for (let i = 0; i < 3; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '3'
             store.state.config.shell = 'Ghost'
             simSpeed = 1.5
@@ -344,7 +348,7 @@ function music3() {
 
     for (let i = 0; i < 4; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '6'
             store.state.config.shell = 'Ghost'
             simSpeed = 1.5
@@ -359,7 +363,7 @@ function music3() {
 
     for (let i = 0; i < 2; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '3'
             store.state.config.shell = 'Ghost'
             simSpeed = 1.5
@@ -370,7 +374,7 @@ function music3() {
 
     for (let i = 0; i < 2; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '6'
             store.state.config.shell = 'Crackle'
             simSpeed = 1.5
@@ -381,7 +385,7 @@ function music3() {
 
     for (let i = 0; i < 5; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crossette'
             simSpeed = 1.5
@@ -396,7 +400,7 @@ function music3() {
 
     for (let i = 0; i < 60; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Random'
             simSpeed = 1.5
@@ -410,7 +414,7 @@ function music3() {
     hoand += 9 * 1000 + 500;
     // 55
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 1.5
@@ -420,7 +424,7 @@ function music3() {
         shell1.launch(0.3, 0.9)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 1
@@ -430,7 +434,7 @@ function music3() {
         shell1.launch(0.6, 0.4)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '3'
         store.state.config.shell = 'Crossette'
         simSpeed = 1.5
@@ -441,7 +445,7 @@ function music3() {
         shell1.launch(1, 0.1)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Ring'
         simSpeed = 1.5
@@ -451,7 +455,7 @@ function music3() {
 
     hoand += 1000;
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 1.5
@@ -464,7 +468,7 @@ function music3() {
     // 60
     hoand += 4000;
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '9'
         store.state.config.shell = 'Ring'
         simSpeed = 1.5
@@ -472,7 +476,7 @@ function music3() {
         shell1.launch(0.5, 0.8)
     }, hoand + 1);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '2'
         store.state.config.shell = 'Crossette'
         simSpeed = 1.5
@@ -481,7 +485,7 @@ function music3() {
         shell1.launch(0.6, 0.2)
     }, hoand + 2);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crossette'
         simSpeed = 1.5
@@ -489,7 +493,7 @@ function music3() {
         shell1.launch(0.9, 0.6)
     }, hoand + 3);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crossette'
         simSpeed = 1.5
@@ -501,7 +505,7 @@ function music3() {
     hoand += 4000;
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crossette'
             simSpeed = 2
@@ -511,7 +515,7 @@ function music3() {
     }
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crossette'
             simSpeed = 2
@@ -523,7 +527,7 @@ function music3() {
     //67
     hoand += 4000;
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crackle'
         simSpeed = 1.5
@@ -534,7 +538,7 @@ function music3() {
         shell1.launch(0.45, 0)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crackle'
         simSpeed = 1.5
@@ -543,7 +547,7 @@ function music3() {
         shell1.launch(0.7, 0.2)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crackle'
         simSpeed = 1.5
@@ -552,7 +556,7 @@ function music3() {
         shell1.launch(0.8, 0.4)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crackle'
         simSpeed = 1.5
@@ -561,7 +565,7 @@ function music3() {
         shell1.launch(0.9, 0.6)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Willow'
         simSpeed = 1.5
@@ -570,7 +574,7 @@ function music3() {
     }, hoand);
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Random'
             simSpeed = 1.5
@@ -583,7 +587,7 @@ function music3() {
     // hoand += 4000;
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crysanthemum'
             simSpeed = 1.5
@@ -594,7 +598,7 @@ function music3() {
         }, hoand - 1000);
     }
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Horse Tail'
         simSpeed = 1.5
@@ -602,7 +606,7 @@ function music3() {
         shell1.launch(0.2, 0.7)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Horse Tail'
         simSpeed = 1.5
@@ -610,7 +614,7 @@ function music3() {
         shell1.launch(0.5, 0.7)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Horse Tail'
         simSpeed = 1.5
@@ -622,7 +626,7 @@ function music3() {
     hoand += 4000;
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Crysanthemum'
             simSpeed = 1.5
@@ -633,7 +637,7 @@ function music3() {
 
     for (let i = 0; i <= 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Ghost'
             simSpeed = 1.5
@@ -643,7 +647,7 @@ function music3() {
     }
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Ring'
         simSpeed = 1.5
@@ -657,7 +661,7 @@ function music3() {
 
     for (let i = 0; i <= 6; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Falling Leaves'
             simSpeed = 2
@@ -669,7 +673,7 @@ function music3() {
     hoand += 5000;
     //85
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 2
@@ -677,7 +681,7 @@ function music3() {
         shell1.launch(0.3, 0.8)
     }, hoand);
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '6'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 2
@@ -686,7 +690,7 @@ function music3() {
     }, hoand);
     for (let i = 0; i < 10; i++) {
         setTimeout(() => {
-            store.state.config = clone(root);
+            store.state.config = clone(rootConfig);
             store.state.config.size = '1'
             store.state.config.shell = 'Ghost'
             simSpeed = 2
@@ -694,7 +698,10 @@ function music3() {
             shell1.launch(Math.random(), Math.random())
         }, hoand + i * 100);
     }
+}
 
+// scene music 3
+function middleFireWorks() {
 // ======================================================================================
 // của mình bắt đầu từ 1p30 đến 2p36s
     // nhạc khá bóc nên cần cái gì đó đệm nhanh
@@ -710,7 +717,7 @@ function music3() {
     /*Strobe*/ //màu xanh nổ to có rớt nhẹ
     /*Willow*/ //màu vàng nổ to, pháo k sặc sỡ.
     /*setTimeout(() => {
-      store.state.config = clone(root);
+      store.state.config = clone(rootConfig);
       store.state.config.size = '2'
       store.state.config.shell = 'Random'
       simSpeed = 1
@@ -723,7 +730,7 @@ function music3() {
     }, 1000);
 
     setTimeout(() => {
-      store.state.config = clone(root);
+      store.state.config = clone(rootConfig);
       store.state.config.size = '2'
       store.state.config.shell = 'Crysanthemum'
       simSpeed = 1
@@ -736,7 +743,7 @@ function music3() {
 
     /*1 hiệu ứng*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -745,7 +752,7 @@ function music3() {
     }, time + 1000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -754,7 +761,7 @@ function music3() {
     }, time + 1150);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -763,7 +770,7 @@ function music3() {
     }, time + 1300);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -772,7 +779,7 @@ function music3() {
     }, time + 1300);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -781,7 +788,7 @@ function music3() {
     }, time + 1450);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -790,7 +797,7 @@ function music3() {
     }, time + 1600);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -799,7 +806,7 @@ function music3() {
     }, time + 1750);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -808,7 +815,7 @@ function music3() {
     }, time + 1900);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -817,7 +824,7 @@ function music3() {
     }, time + 2050);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Floral'
         simSpeed = 1
@@ -827,7 +834,7 @@ function music3() {
 
     /*1 hiệu ứng*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -836,7 +843,7 @@ function music3() {
     }, time + 5000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -845,7 +852,7 @@ function music3() {
     }, time + 5150);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -854,7 +861,7 @@ function music3() {
     }, time + 5300);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -863,7 +870,7 @@ function music3() {
     }, time + 5450);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -872,7 +879,7 @@ function music3() {
     }, time + 5600);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -881,7 +888,7 @@ function music3() {
     }, time + 5850);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -890,7 +897,7 @@ function music3() {
     }, time + 6000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -899,7 +906,7 @@ function music3() {
     }, time + 6150);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -908,7 +915,7 @@ function music3() {
     }, time + 6300);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Floral'
         simSpeed = 1
@@ -918,7 +925,7 @@ function music3() {
 
     /*1 hiệu ứng*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 1
@@ -928,7 +935,7 @@ function music3() {
     }, time + 8500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -939,7 +946,7 @@ function music3() {
     }, time + 8700);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crossette'
         simSpeed = 1
@@ -949,7 +956,7 @@ function music3() {
     }, time + 8900);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ghost'
         simSpeed = 1
@@ -960,7 +967,7 @@ function music3() {
     /*1 hieu ung*/
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Palm'
         simSpeed = 1
@@ -973,7 +980,7 @@ function music3() {
     }, time + 13200);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -984,7 +991,7 @@ function music3() {
     }, time + 8700);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crossette'
         simSpeed = 1
@@ -994,7 +1001,7 @@ function music3() {
     }, time + 8900);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ghost'
         simSpeed = 1
@@ -1005,7 +1012,7 @@ function music3() {
     /*1 hieu ung*/
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Palm'
         simSpeed = 1
@@ -1018,7 +1025,7 @@ function music3() {
     }, time + 13200);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Floral'
         simSpeed = 1
@@ -1029,7 +1036,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Crysanthemum'
         simSpeed = 1
@@ -1038,7 +1045,7 @@ function music3() {
     }, time + 15500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1052,7 +1059,7 @@ function music3() {
     /*1 hieu ung*/
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1061,7 +1068,7 @@ function music3() {
     }, time + 18000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1071,7 +1078,7 @@ function music3() {
     }, time + 18500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1081,7 +1088,7 @@ function music3() {
     }, time + 19000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1091,7 +1098,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ghost'
         simSpeed = 1
@@ -1100,7 +1107,7 @@ function music3() {
     }, time + 20000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1110,7 +1117,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1123,7 +1130,7 @@ function music3() {
     }, time + 21000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Falling Leaves'
         simSpeed = 1
@@ -1136,7 +1143,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ghost'
         simSpeed = 1
@@ -1146,7 +1153,7 @@ function music3() {
     }, time + 24000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1157,7 +1164,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1167,7 +1174,7 @@ function music3() {
     }, time + 26000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1177,7 +1184,7 @@ function music3() {
     }, time + 26500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1187,7 +1194,7 @@ function music3() {
     }, time + 27000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1197,7 +1204,7 @@ function music3() {
     }, time + 27500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1206,7 +1213,7 @@ function music3() {
     }, time + 28000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Floral'
         simSpeed = 1
@@ -1217,7 +1224,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1229,7 +1236,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1238,7 +1245,7 @@ function music3() {
     }, time + 35000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1248,7 +1255,7 @@ function music3() {
     }, time + 36000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1258,7 +1265,7 @@ function music3() {
     }, time + 37000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1268,7 +1275,7 @@ function music3() {
     }, time + 38000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1279,7 +1286,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Falling Leaves'
         simSpeed = 1
@@ -1296,7 +1303,7 @@ function music3() {
     }, time + 41000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Floral'
         simSpeed = 1
@@ -1306,7 +1313,7 @@ function music3() {
     }, time + 42000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Strobe'
         simSpeed = 1
@@ -1320,7 +1327,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1329,7 +1336,7 @@ function music3() {
     }, time + 47000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1338,7 +1345,7 @@ function music3() {
     }, time + 47500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1347,7 +1354,7 @@ function music3() {
     }, time + 48000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1356,7 +1363,7 @@ function music3() {
     }, time + 48500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1365,7 +1372,7 @@ function music3() {
     }, time + 49000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1374,7 +1381,7 @@ function music3() {
     }, time + 49500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1383,7 +1390,7 @@ function music3() {
     }, time + 50000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1392,7 +1399,7 @@ function music3() {
     }, time + 50500);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1401,7 +1408,7 @@ function music3() {
     }, time + 51000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Falling Leaves'
         simSpeed = 1
@@ -1414,7 +1421,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1423,7 +1430,7 @@ function music3() {
     }, time + 53000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1432,7 +1439,7 @@ function music3() {
     }, time + 54000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1441,7 +1448,7 @@ function music3() {
     }, time + 55000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1450,7 +1457,7 @@ function music3() {
     }, time + 56000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1459,7 +1466,7 @@ function music3() {
     }, time + 57000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1468,7 +1475,7 @@ function music3() {
     }, time + 58000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1477,7 +1484,7 @@ function music3() {
     }, time + 59000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1486,7 +1493,7 @@ function music3() {
     }, time + 60000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1496,7 +1503,7 @@ function music3() {
 
     /*1 hieu ung*/
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1506,7 +1513,7 @@ function music3() {
     }, time + 61000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Ring'
         simSpeed = 1
@@ -1516,7 +1523,7 @@ function music3() {
     }, time + 62000);
 
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = '1'
         store.state.config.shell = 'Floral'
         simSpeed = 1
@@ -1536,7 +1543,7 @@ function music3() {
     /*Willow*/ //màu vàng nổ to, pháo k sặc sỡ.
 
     /*setTimeout(() => {
-      store.state.config = clone(root);
+      store.state.config = clone(rootConfig);
       store.state.config.size = '0.5'
       store.state.config.shell = 'Crossette'
       simSpeed = 1
@@ -1550,7 +1557,7 @@ function music3() {
     setTimeout(() => {simSpeed = 1}, 2000);*/
 }
 
-function end(time_start = 0) {
+function endFireWorks(time_start = 0) {
     const ar_shellTypes = [
         'Crackle',
         'Crossette',        //hiệu ứng lạ khá đẹp
@@ -1700,16 +1707,12 @@ function end(time_start = 0) {
 
         [[0.25,0.65],[0.5,0.8],[0.75,0.65]],
 
-
-
         [[0.1,0.4],[0.18,0.4],[0.26,0.4],[0.34,0.4],[0.42,0.4],[0.5,0.7],[0.58,0.4],[0.66,0.4],[0.74,0.4],[0.82,0.4],[0.9,0.4]],
 
         [[0.1,0.4],[0.18,0.4],[0.26,0.4],[0.34,0.4],[0.42,0.4],[0.5,0.75],[0.58,0.4],[0.66,0.4],[0.74,0.4],[0.82,0.4],[0.9,0.4]],
 
-
         [[0.2,0.8],[0.5,0.8],[0.8,0.8]],
         [[0.1,0.35],[0.3,0.35],[0.4,0.35],[0.6,0.35],[0.7,0.35],[0.9,0.35]],
-
 
 
         [[0.15,0.6],[0.5,0.8],[0.85,0.6]],
@@ -1720,8 +1723,8 @@ function end(time_start = 0) {
         [[0.35,0.75],[0.65,0.75]],
         [[0.15,0.4],[0.35,0.4],[0.65,0.4],[0.85,0.4]],
         [[0.2,0.9],[0.4,0.9],[0.6,0.9],[0.8,0.9]],
-        [[0.1,0.2],[0.2,0.2],[0.3,0.2],[0.4,0.2],[0.5,0.2],[0.6,0.2],[0.7,0.2],[0.8,0.2]],
-        [[0.83,0.8],[0.73,0.8],[0.63,0.8],[0.53,0.8],[0.43,0.8],[0.33,0.8],[0.23,0.8],[0.13,0.8]],
+        [[0.83,0.2],[0.73,0.2],[0.63,0.2],[0.53,0.2],[0.43,0.2],[0.33,0.2],[0.23,0.2],[0.13,0.2]],
+        [[0.1,0.8],[0.2,0.8],[0.3,0.8],[0.4,0.8],[0.5,0.8],[0.6,0.8],[0.7,0.8],[0.8,0.8]],
 
 
         [[0.4,0.7],[0.5,0.55],[0.6,0.7]],                // Trai tim
@@ -1732,7 +1735,6 @@ function end(time_start = 0) {
         [[0.05,0.6],[0.2,0.6],[0.35,0.6],[0.6,0.6],[0.75,0.6],[0.9,0.6]],
         [[0.1,0.4],[0.3,0.4],[0.65,0.4],[0.85,0.4]],
         [[0.2,0.2],[0.75,0.2]],
-
 
         [[0.5,0.8]],                             // Ngoi nha
         [[0.45,0.6],[0.55,0.6]],
@@ -1749,13 +1751,11 @@ function end(time_start = 0) {
         [[0.25,0.8],[0.5,0.8],[0.75,0.8]],
         [[0.15,0.35],[0.35,0.35],[0.4,0.35],[0.6,0.35],[0.65,0.35],[0.85,0.35]],
 
-
         [[0.1,0.8],[0.2,0.8],[0.3,0.8],[0.5,0.8],[0.7,0.8],[0.85,0.8]],
         [[0.1,0.65],[0.25,0.65],[0.5,0.65],[0.7,0.65],[0.8,0.65]],
-        [[0.1,0.5],[0.2,0.5],[0.5,0.5],[0.7,0.5],[0.65,0.5]],              // R I K
+        [[0.1,0.5],[0.2,0.5],[0.5,0.5],[0.7,0.5],[0.75,0.5]],              // R I K
         [[0.1,0.35],[0.25,0.35],[0.5,0.35],[0.7,0.35],[0.8,0.35]],
         [[0.1,0.25],[0.3,0.25],[0.5,0.25],[0.7,0.25],[0.85,0.25]],
-        //
 
         //
         [[0.1,0.9],[0.9,0.9]],
@@ -1787,7 +1787,6 @@ function end(time_start = 0) {
         [[0.4,0.3],[0.5,0.3],[0.6,0.3]],
         [[0.4,0.6],[0.5,0.6],[0.6,0.6]],
 
-
         [[0.5,0.8]],
         [[0.4,0.6],[0.6,0.6]],
         [[0.35,0.5],[0.65,0.5]],
@@ -1795,7 +1794,6 @@ function end(time_start = 0) {
         [[0.35,0.3],[0.65,0.3]],
         [[0.4,0.2],[0.6,0.2]],
         [[0.5,0.1]],
-
 
         [[0.4,0.8],[0.6,0.8]],
         [[0.5,0.6]],
@@ -1824,7 +1822,7 @@ function end(time_start = 0) {
 
         [[0.05,0.8],[0.2,0.8],[0.3,0.8],[0.4,0.7],[0.5,0.55],[0.6,0.7],[0.75,0.8],[0.9,0.8]],
         [[0.05,0.65],[0.25,0.65],[0.35,0.5],[0.5,0.45],[0.65,0.5],[0.75,0.65],[0.85,0.65]],
-        [[0.05,0.5],[0.2,0.5],[0.39,0.3],[0.61,0.3],[0.75,0.5],[0.7,0.5]],              // R I K
+        [[0.05,0.5],[0.2,0.5],[0.39,0.3],[0.61,0.3],[0.75,0.5],[0.8,0.5]],              // R I K
         [[0.05,0.35],[0.25,0.35],[0.5,0.1],[0.75,0.35],[0.85,0.35]],
         [[0.05,0.25],[0.3,0.25],[0.75,0.25],[0.9,0.25]],
 
@@ -2064,10 +2062,10 @@ function end(time_start = 0) {
         [4,4],
         [4],
 
-        [0,0,0,0,0,0],
-        [0,0,0,0,0,0],
-        [0,0,0,0,0,0],
-        [0,0,0,0,0,0],
+        [0,0,0,0,0,3],
+        [0,0,0,0,0,3],
+        [0,0,0,0,0,3],
+        [0,0,0,0,0,3],
 
         [0,0,0,0,0,0,0,0],  //R I K
         [0,0,0,4,0,0,0],
@@ -2104,22 +2102,8 @@ function end(time_start = 0) {
 }
 
 function fireRun(shell = "Random", x = 0.5, y = 0.5, time = 0, size = 1, speed = 1.3) {
-    const root = {
-        "quality": "2",
-        "shell": "Random",  // shellTypes
-        "size": "1",
-        "autoLaunch": false,
-        "finale": false,
-        "skyLighting": "2",
-        "hideControls": false,
-        "longExposure": false,
-        "scaleFactor": 1
-    };
-
-
-
     setTimeout(() => {
-        store.state.config = clone(root);
+        store.state.config = clone(rootConfig);
         store.state.config.size = size;
         store.state.config.shell = shell;
         simSpeed = speed;
