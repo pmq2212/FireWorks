@@ -81,52 +81,28 @@ function startFireWorks() {
     var hoand = delayStart;
 
     // DrawFire
-    let xb = 0;
     for (let i = 0; i < 6; i++) {
         setTimeout(() => {
             store.state.config = clone(rootConfig);
-            store.state.config.size = '1';
+            store.state.config.size = '0.5';
             store.state.config.shell = 'Crackle';
             simSpeed = 1;
             const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-            shell1.launch(0.2 * i, 0)
+            shell1.launch(0.2 * i, -0.1)
         }, hoand + i * 100);
     }
 
-    hoand += 5000;
-    // initFire();
-    for (let i = 0; i <= 1; i += 0.1) {
+    hoand += 9000;
+    for (let i = 0; i < 6; i++) {
         setTimeout(() => {
-            // Load small fir
-            // drawFire(1 - i, 0.6);
-        }, hoand + i * 6000);
+            store.state.config = clone(rootConfig);
+            store.state.config.size = '0.5';
+            store.state.config.shell = 'Crackle';
+            simSpeed = 1;
+            const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
+            shell1.launch(0.2 * i, -0.1)
+        }, hoand + i * 100);
     }
-    setTimeout(() => {
-        // setCoordsFire(0, 0)
-    }, hoand + 6000);
-
-    hoand += 4000;
-    // setTimeout(() => {
-    //     store.state.config = clone(rootConfig);
-    //     store.state.config.size = '1'
-    //     store.state.config.shell = 'Crysanthemum'
-    //     simSpeed = 1
-    //     const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-    //     for (let i = 0; i < 5 ; i++) {
-    //         shell1.launch(0.1 + 0.2 *i, 0.1)
-    //     }
-    // }, hoand );
-
-    // setTimeout(() => {
-    //     store.state.config = clone(rootConfig);
-    //     store.state.config.size = '3'
-    //     store.state.config.shell = 'Crossette'
-    //     simSpeed = 1
-    //     const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-    //     for (let i = 0; i < 5 ; i++) {
-    //         shell1.launch(0.1 + 0.2 *i, 0.8)
-    //     }
-    // }, hoand);
     hoand += 5 * 1000;
 
     //5
