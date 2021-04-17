@@ -82,7 +82,7 @@ function startFireWorks() {
 
     // DrawFire
     let xb = 0;
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
         setTimeout(() => {
             store.state.config = clone(rootConfig);
             store.state.config.size = '1';
