@@ -52,6 +52,7 @@ function makeChars(t) {
 }
 
 let requestTitleId;
+let isClearTitle = true;
 function renderTitle(timestamp) {
     let time = 0;
     if (firstRender) {
@@ -67,12 +68,18 @@ function renderTitle(timestamp) {
     if (time <= cntRender) {
       ctx.fillStyle = '#00000010'
       ctx.fillRect(0, 0, w, h);
-      chars.forEach( (row, idx) =>
-        row.forEach(
-          (pts,i) => firework(time, i, pts, row, idx)
-        )
+      chars.forEach( (row, idx) => {
+          if (isClearTitle && time > duration) {
+              ctx.clearRect(0, 0, w, h);
+              isClearTitle = false;
+          }
+          row.forEach(
+              (pts, i) => firework(time, i, pts, row, idx)
+          )
+        }
       );
     } else {
+        ctx.clearRect(0, 0, w, h);
         cancelAnimationFrame(requestTitleId);
     }
 }

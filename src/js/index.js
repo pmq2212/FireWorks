@@ -1,5 +1,5 @@
 let chars, particles, canvas, ctx, w, h, current;
-let duration = 10000; //time loading text title
+let duration = 9500; //time loading text title
 // let title = 'Happy Rikkeisoft 9th Anniversary & Rikkeisoft DaNang 5th Anniversary';
 let line = [
     [ 'Happy Rikkeisoft', 'Rikkeisoft DaNang'],
@@ -19,41 +19,50 @@ function clone(data) {
 
 var isBegin = false;
 const bgMusic = new Audio('./audio/background.mp3');
+
+const delayStart = 1000;
 function initAll() {
     if (!isBegin) {
         isBegin = true;
         document.getElementById('btn-play-overflow').remove();
         document.getElementById('btn-play').remove();
 
-        // Music bacground
-        bgMusic.play();
-
-        // Load title text
-        initTitle();
-        requestAnimationFrame(renderTitle);
-
-        startFireWorks();
-
-        middleFireWorks();
-
-        // Music 3, 4
-        let end_time;
-        end_time = endFireWorks(165000);
-
+        // Music background
         setTimeout(() => {
-            // line = [['THANKS'], ['YOU']];
-            // duration = 9000;
-            // chars = [[]];
-            // cntRender = duration * line[0].length
-            // fontTextMax = 350;
-            // dt = 20;
-            // spaceLine = 0.3;
-            // firstRender = true;
-            // requestAnimationFrame(renderTitle);
-            document.getElementById("container-end").style.display = "block";
-        }, end_time + 1000);
+            bgMusic.play();
+            // Load title text
+            initTitle();
+            requestAnimationFrame(renderTitle);
+
+            startFireWorks();
+
+            middleFireWorks();
+
+            // Music 3, 4
+            let end_time;
+            end_time = endFireWorks(delayStart + 165000);
+
+            setTimeout(() => {
+                // line = [['THANKS'], ['YOU']];
+                // duration = 9000;
+                // chars = [[]];
+                // cntRender = duration * line[0].length
+                // fontTextMax = 350;
+                // dt = 20;
+                // spaceLine = 0.3;
+                // firstRender = true;
+                // requestAnimationFrame(renderTitle);
+                document.getElementById("container-end").style.display = "block";
+            }, end_time + 1000);
+        }, delayStart);
     }
 }
+
+window.addEventListener('keyup', ()=>{
+    if (event.keyCode === 13) {
+        initAll();
+    }
+});
 
 const rootConfig = {
     "quality": "10",
@@ -69,9 +78,10 @@ const rootConfig = {
 
 // scene music 1,2
 function startFireWorks() {
-    var hoand = 0;
+    var hoand = delayStart;
 
     // DrawFire
+    let xb = 0;
     for (let i = 0; i < 4; i++) {
         setTimeout(() => {
             store.state.config = clone(rootConfig);
@@ -84,15 +94,15 @@ function startFireWorks() {
     }
 
     hoand += 5000;
-    initFire();
+    // initFire();
     for (let i = 0; i <= 1; i += 0.1) {
         setTimeout(() => {
             // Load small fir
-            drawFire(1 - i, 0.6);
+            // drawFire(1 - i, 0.6);
         }, hoand + i * 6000);
     }
     setTimeout(() => {
-        setCoordsFire(0, 0)
+        // setCoordsFire(0, 0)
     }, hoand + 6000);
 
     hoand += 4000;
@@ -738,7 +748,7 @@ function middleFireWorks() {
       shell1.launch(0.5, 0.5)
     }, 6000);*/
 
-    var time = 97 * 1000;
+    var time = delayStart + 97 * 1000;
     // var time = 1000;
 
     /*1 hiệu ứng*/
