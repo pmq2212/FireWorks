@@ -39,8 +39,7 @@ function initAll() {
             middleFireWorks();
 
             // Music 3, 4
-            let end_time;
-            end_time = endFireWorks(delayStart + 165000);
+            let end_time = endFireWorks(delayStart + 165000);
 
             setTimeout(() => {
                 // line = [['THANKS'], ['YOU']];
@@ -64,8 +63,8 @@ window.addEventListener('keyup', ()=>{
     }
 });
 
-const rootConfig = {
-    "quality": "10",
+let rootConfig = {
+    "quality": QUALITY_NORMAL,
     "shell": "Random",  // shellTypes
     "size": "2",
     "autoLaunch": false,
@@ -92,7 +91,7 @@ function startFireWorks() {
         }, hoand + i * 100);
     }
 
-    hoand += 9000;
+    hoand += 10000;
     for (let i = 0; i < 6; i++) {
         setTimeout(() => {
             store.state.config = clone(rootConfig);
@@ -117,7 +116,7 @@ function startFireWorks() {
         }, hoand + i * 100 + 2000);
     }
 
-    hoand += 5 * 1000;
+    hoand += 4 * 1000;
 
     // 10
     setTimeout(() => {
@@ -325,6 +324,7 @@ function startFireWorks() {
         setTimeout(() => {
             store.state.config = clone(rootConfig);
             store.state.config.size = '3'
+            store.state.config.quality= QUALITY_NORMAL;
             store.state.config.shell = 'Ghost'
             simSpeed = 1.5
             const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -339,7 +339,7 @@ function startFireWorks() {
             store.state.config.shell = 'Ghost'
             simSpeed = 1.5
             const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
-            shell1.launch(0.1 + 0.25 * i, 0.1)
+            shell1.launch(0.1 + 0.2 * i, 0.1)
         }, hoand);
     }
 
@@ -553,6 +553,7 @@ function startFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '6'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Willow'
         simSpeed = 1.5
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -562,6 +563,7 @@ function startFireWorks() {
         setTimeout(() => {
             store.state.config = clone(rootConfig);
             store.state.config.size = '1'
+            store.state.config.quality= QUALITY_NORMAL;
             store.state.config.shell = 'Random'
             simSpeed = 1.5
             const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -725,7 +727,7 @@ function middleFireWorks() {
     }, 6000);*/
 
     var time = delayStart + 97 * 1000;
-    // var time = 1000;
+    // var time = -18000;
 
     /*1 hiệu ứng*/
     setTimeout(() => {
@@ -1033,6 +1035,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Willow'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1047,6 +1050,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Strobe'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1056,6 +1060,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Strobe'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1066,6 +1071,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Strobe'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1076,6 +1082,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Strobe'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1104,6 +1111,7 @@ function middleFireWorks() {
     /*1 hieu ung*/
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1117,6 +1125,7 @@ function middleFireWorks() {
 
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Falling Leaves'
         simSpeed = 1
@@ -1128,8 +1137,10 @@ function middleFireWorks() {
     }, time + 23000);
 
     /*1 hieu ung*/
+
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Ghost'
         simSpeed = 1
@@ -1141,6 +1152,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Ring'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1406,8 +1418,10 @@ function middleFireWorks() {
     }, time + 52000);
 
     /*1 hieu ung*/
+    store.state.config.quality= QUALITY_LOW;
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1417,6 +1431,7 @@ function middleFireWorks() {
 
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1426,6 +1441,7 @@ function middleFireWorks() {
 
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1435,6 +1451,7 @@ function middleFireWorks() {
 
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1444,6 +1461,7 @@ function middleFireWorks() {
 
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1453,6 +1471,7 @@ function middleFireWorks() {
 
     setTimeout(() => {
         store.state.config = clone(rootConfig);
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.size = '1'
         store.state.config.shell = 'Willow'
         simSpeed = 1
@@ -1463,6 +1482,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Willow'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1472,6 +1492,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Willow'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1481,6 +1502,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Willow'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1491,6 +1513,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Ring'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1501,6 +1524,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+        store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Ring'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1511,6 +1535,7 @@ function middleFireWorks() {
     setTimeout(() => {
         store.state.config = clone(rootConfig);
         store.state.config.size = '1'
+    store.state.config.quality= QUALITY_LOW;
         store.state.config.shell = 'Floral'
         simSpeed = 1
         const shell1 = new Shell(shellFromConfig(shellSizeSelector()));
@@ -1557,6 +1582,17 @@ function endFireWorks(time_start = 0) {
         'Strobe',           //màu xanh nổ to có rớt nhẹ
         'Willow'];          //màu vàng nổ to, pháo k sặc sỡ.
 
+    rootConfig = {
+        "quality": QUALITY_HIGH,
+        "shell": "Random",  // shellTypes
+        "size": "2",
+        "autoLaunch": false,
+        "finale": false,
+        "skyLighting": "2",
+        "hideControls": false,
+        "longExposure": false,
+        "scaleFactor": 1
+    };
 
     let ar_shell = [
 
